@@ -26,7 +26,7 @@ app.set('db', client)
 
 
 
-const port = 5000
+const port = process.env.PORT || process.env.LOCAL_PORT
 app.listen(port, ()=> {
     console.log(`Listening on port ${port}`)
 })
