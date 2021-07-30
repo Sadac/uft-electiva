@@ -19,16 +19,10 @@ CREATE TABLE users (
 /* crear la tabla de tareas */
 CREATE TABLE tasks (
     id uuid DEFAULT uuid_generate_v4() NOT NULL,
+    user_id uuid NOT NULL,
     name VARCHAR NOT NULL,
     description VARCHAR NOT NULL,
-    PRIMARY KEY(id)
-);
-
-/* crear la tabla relacion de users tasks */
-CREATE TABLE user_tasks (
-    userId uuid NOT NULL,
-    taskId uuid NOT NULL,
+    PRIMARY KEY(id),
     FOREIGN KEY(userId) REFERENCES users(id),
-    FOREIGN KEY(taskId) REFERENCES tasks(id)
 );
 ```
